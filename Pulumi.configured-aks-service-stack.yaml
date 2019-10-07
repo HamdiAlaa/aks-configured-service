@@ -1,0 +1,8 @@
+encryptionsalt: v1:YTkee7kQQTg=:v1:/DTnG8Yzsf51l4Y1:TKBCfVPu4nIb6hRre/lmljkd6MvV3w==
+config:
+  azure:clientId: dbd6664d-4eb9-46eb-99d8-5c43ba153c61
+  azure:clientSecret:
+    secure: v1:qfqDV6c8v7L6acxZ:0PAWW2ZV8wDAlK5WUF8KE2ZPsFssWsqb3N5STo/A/H+Z+4Y6aGFb/RctYqntHe/c
+  azure:environment: public
+  azure:subscriptionId: d4052f92-3530-47ed-8841-766a209d9067
+  azure:tenantId: dbd6664d-4eb9-46eb-99d8-5c43ba153c61
