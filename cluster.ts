@@ -3,9 +3,8 @@
 import * as azure from "@pulumi/azure";
 import * as azuread from "@pulumi/azuread";
 import * as k8s from "@pulumi/kubernetes";
-import * as pulumi from "@pulumi/pulumi";
 import * as config from "./config";
-let __config = require('../config/aks_service_infos.json');
+const __config = require('../config/aks_service_infos.json');
 
 // Create the AD service principal for the K8s cluster.
 const adApp = new azuread.Application("aks");
@@ -18,20 +17,20 @@ const adSpPassword = new azuread.ServicePrincipalPassword("aksSpPassword", {
 
 // Now allocate an AKS cluster.
 
-export const k8sCluster = new azure.containerservice.KubernetesCluster(`${__config.cluster_name}`, {
+export const k8sCluster = new azure.containerservice.KubernetesCluster(`${__config.aks_config.cluster_name}`, {
     resourceGroupName: config.resourceGroup.name,
-    location: __config.location,
+    location: config.location,
 
     agentPoolProfiles: [{
         name: "aksagentpool",
-        count: __config.node_number,
-        vmSize: __config.node_size,
+        count: __config.aks_config.node_number,
+        vmSize: __config.aks_config.node_size,
     
 
     }],
     dnsPrefix: `test-kube-dns`,
     linuxProfile: {
-        adminUsername: __config.admin__username,
+        adminUsername: __config.aks_config.admin__username,
         sshKey: {
             keyData: config.sshPublicKey,
         },
