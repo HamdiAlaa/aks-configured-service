@@ -3,16 +3,21 @@
 import * as helm from "@pulumi/kubernetes/helm";
 import { k8sCluster, k8sProvider } from "./cluster";
 
-const apache = new helm.v2.Chart(
-    "apache",
+let __config = require('../config/aks_service_infos.json');
+
+if(__config.services.length>0){
+    for (let index = 0; index < __config.services.length; index++) {
+        //Chart
+const service = new helm.v2.Chart(
+    __config.services[index].release_name,
     {
-        repo: "bitnami",
-        chart: "apache",
-        version: "1.0.0",
+        repo: __config.services[index].repo,
+        chart: __config.services[index].chart,
+        version: __config.version,
     },
     { providers: { kubernetes: k8sProvider } },
 );
-
+    }}
 // export let cluster = k8sCluster.name;
 export let kubeConfig = k8sCluster.kubeConfigRaw;
 export let provider = k8sProvider;
