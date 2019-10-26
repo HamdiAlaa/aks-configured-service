@@ -1,12 +1,11 @@
 encryptionsalt: v1:YTkee7kQQTg=:v1:/DTnG8Yzsf51l4Y1:TKBCfVPu4nIb6hRre/lmljkd6MvV3w==
 config:
-  azure-ts-aks-helm:password:
-    secure: v1:dbfc5qrTjUBMrDC4:pJxmjhOIG+mksNxEEjYyIZ7fsoxUK3BhfyMfxA==
+  azure-ts-aks-helm:password: alaapassword
   azure-ts-aks-helm:sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0EE3ENp6z/+d7DzS1LgZs+gyTJ90J7mDfIxNTL6T9KSgQLpU/4Uqj2zT8ggiaAxOXJqqrv9+BF9aTecgv2/QU85veH81klpVgFH315ihzoxud3JTVYhytfIH+w5kvx7VknxZj4+POgro64vls3ouO8LS8Cy7oZkUvgUw+91WP3dVzHmUxhZCHkmAwb70s+rJFRw5PJGeLsRhpjhNeBX6U3ikG2iezbeY6t9NXC5hw3DvHJ2tDifxhhI5TZCcD1KnFsoUPJGN9X5zUfDsRwMMqrQCdaBJp6tR8yesnpxJqfyrMV0K5CNEE9jT53gkRlPShitfMKvi+B8/jOWSc2Y8/
     alaa@alaa
   azure:clientId: 073139b7-eb7e-4b4a-bc53-c5eae5b136e6
   azure:clientSecret:
-    secure: v1:CRKnbzljgxou89Ms:fg5eHnrU1eRv1CL0EM695vJCNeyq7Dax9/Mmomr4M4b8rFQnrfD2ba7B2CSnByOq
+    secure: v1:Q13ohtL3NFhpoBmm:S6LBQkyOEumBZqU5zluFu7c6wxBT3P0MnuyVfzkklEvanGXl2r6f5hEqDdcivYYo
   azure:environment: public
   azure:subscriptionId: 02a60b58-610b-4e92-9714-fe8cc4c2911b
   azure:tenantId: dbd6664d-4eb9-46eb-99d8-5c43ba153c61
