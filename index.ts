@@ -3,7 +3,7 @@
 import * as helm from "@pulumi/kubernetes/helm";
 import { k8sCluster, k8sProvider } from "./cluster";
 
-let __config = require('../config/aks_service_infos.json');
+let __config = require('../config/__aks.json');
 
 if(__config.services.length>0){
     for (let index = 0; index < __config.services.length; index++) {

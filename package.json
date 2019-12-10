@@ -1,5 +1,5 @@
 {
-    "name": "azure-ts-aks-helm",
+    "name": "aks-configured-service",
     "version": "0.1.0",
     "devDependencies": {
         "@types/node": "^8.0.26"

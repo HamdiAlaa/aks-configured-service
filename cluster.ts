@@ -7,20 +7,20 @@ let __ = require('../config/__aks.json');
 
 // Now allocate an AKS cluster.
 
-export const k8sCluster = new azure.containerservice.KubernetesCluster(`${__.aks_config.cluster_name}`, {
+export const k8sCluster = new azure.containerservice.KubernetesCluster(`${__.cluster_config.cluster_name}`, {
     resourceGroupName: config.resourceGroup.name,
-    location: __.aks_config.location,
+    location: __.cluster_config.location,
 
     agentPoolProfiles: [{
         name: "aksagentpool",
-        count: __.aks_config.node_number,
-        vmSize: __.aks_config.node_size,
+        count: __.cluster_config.node_number,
+        vmSize: __.cluster_config.node_size,
     
 
     }],
     dnsPrefix: `test-kube-dns`,
     linuxProfile: {
-        adminUsername: __.aks_config.admin__username,
+        adminUsername: __.cluster_config.admin_username,
         sshKey: {
             keyData: config.sshPublicKey,
         },

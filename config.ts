@@ -4,15 +4,14 @@ import * as azure from "@pulumi/azure";
 import * as pulumi from "@pulumi/pulumi";
 import * as azuread from "@pulumi/azuread";
 
-let __config = require('../config/aks_service_infos.json');
+let __config = require('../config/__aks.json');
 
 
 // Parse and export configuration variables for this stack.
 const config = new pulumi.Config();
 export const password = config.require("password");
-const location = __config.aks_config.location
+const location = __config.cluster_config.location
 export const sshPublicKey = config.require("sshPublicKey");
-export const resourceGroup = new azure.core.ResourceGroup("aks", { location });
 // 8GO?HVlP0witz-8+1aitzy]*caY1jz+[
 // Create the AD service principal for the K8s cluster.
 export const adApp = new azuread.Application("aks");
@@ -23,3 +22,4 @@ export const adSpPassword = new azuread.ServicePrincipalPassword("aksSpPassword"
     value: password,
     endDate: "2099-01-01T00:00:00Z",
 });
+export const resourceGroup = new azure.core.ResourceGroup("aks", { location });

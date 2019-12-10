@@ -1,4 +1,4 @@
-name: azure-ts-aks-helm
+name: aks-configured-service
 runtime: nodejs
 description: Create an Azure Kubernetes Service (AKS) cluster and deploy a Helm Chart
   into it
