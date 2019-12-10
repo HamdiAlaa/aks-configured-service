@@ -7,7 +7,7 @@ let __ = require('../config/__aks.json');
 
 // Now allocate an AKS cluster.
 
-export const k8sCluster = new azure.containerservice.KubernetesCluster(`${__.cluster_config.cluster_name}`, {
+export const k8sCluster = new azure.containerservice.KubernetesCluster(`${__.cluster_config.cluster_name}-${__.cluster_config.tag}`, {
     resourceGroupName: config.resourceGroup.name,
     location: __.cluster_config.location,
 
@@ -18,7 +18,7 @@ export const k8sCluster = new azure.containerservice.KubernetesCluster(`${__.clu
     
 
     }],
-    dnsPrefix: `test-kube-dns`,
+    dnsPrefix: `${__.cluster_config.tag}-${__.cluster_config.cluster_name}-dns`,
     linuxProfile: {
         adminUsername: __.cluster_config.admin_username,
         sshKey: {
@@ -33,6 +33,6 @@ export const k8sCluster = new azure.containerservice.KubernetesCluster(`${__.clu
 });
 
 // Expose a K8s provider instance using our custom cluster instance.
-export const k8sProvider = new k8s.Provider("aksK8s", {
+export const k8sProvider = new k8s.Provider(`aks-${__.cluster_config.tag}-provider`, {
     kubeconfig: k8sCluster.kubeConfigRaw,
 });
