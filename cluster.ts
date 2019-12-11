@@ -4,15 +4,13 @@ import * as config from "./config";
 let __ = require('../config/__aks.json');
 
 
-
 // Now allocate an AKS cluster.
-
 export const k8sCluster = new azure.containerservice.KubernetesCluster(`${__.cluster_config.cluster_name}-${__.cluster_config.tag}`, {
     resourceGroupName: config.resourceGroup.name,
     location: __.cluster_config.location,
 
     agentPoolProfiles: [{
-        name: "aksagentpool",
+        name: `${__.cluster_config.tag}node`,
         count: __.cluster_config.node_number,
         vmSize: __.cluster_config.node_size,
     
@@ -27,8 +25,8 @@ export const k8sCluster = new azure.containerservice.KubernetesCluster(`${__.clu
     },
 
     servicePrincipal: {
-        clientId: config.adApp.applicationId,
-        clientSecret: config.adSpPassword.value,
+        clientId: __.account.client_id ,
+        clientSecret:__.account.client_secret,
     },
 });
 
