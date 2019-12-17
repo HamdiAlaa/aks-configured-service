@@ -18,6 +18,7 @@ const service = new helm.v2.Chart(
     { providers: { kubernetes: k8sProvider } },
 );
     }}
+export let kubeConfig = k8sCluster.kubeConfig;
 export let provider = k8sProvider;
 // export let serviceIP = apache
 //     .getResourceProperty("v1/Service", "apache-apache","status")
