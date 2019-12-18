@@ -13,12 +13,12 @@ const service = new helm.v2.Chart(
     {
         repo: __config.services[index].repo,
         chart: __config.services[index].chart,
-        version: __config.version,
+        //version: __config.services[index].version,
     },
     { providers: { kubernetes: k8sProvider } },
 );
     }}
-export let kubeConfig = k8sCluster.kubeConfig;
+export let kubeConfig = k8sCluster.kubeConfigRaw;
 export let provider = k8sProvider;
 // export let serviceIP = apache
 //     .getResourceProperty("v1/Service", "apache-apache","status")
